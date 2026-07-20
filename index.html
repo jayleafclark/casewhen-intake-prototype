@@ -390,6 +390,17 @@ input,textarea,select{font-family:inherit}
 .sl-txt code{font-family:var(--mono);font-size:.9em;background:#F3F3F3;border:1px solid #EDEDED;border-radius:4px;padding:1px 5px;color:#C24B47}
 .sl-card{margin-top:7px;border:1px solid var(--line);border-left:3px solid var(--green);border-radius:7px;padding:9px 12px;font-size:12.5px;color:var(--body);background:#fff;max-width:440px}
 .sl-card b{color:var(--ink)}
+.sl-digest{border:1px solid var(--line);border-radius:10px;overflow:hidden;max-width:540px;margin-top:5px}
+.sl-dh{background:var(--green-50);padding:10px 14px;font-weight:700;color:var(--ink);font-size:13px;border-bottom:1px solid var(--green-100)}
+.sl-digest.adm .sl-dh{background:var(--amber-50);border-bottom-color:var(--amber-100);color:#5a4718}
+.sl-dstats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line2)}
+.sl-dstat{background:#fff;padding:10px 10px;text-align:center}
+.sl-dstat .n{font-size:19px;font-weight:700;color:var(--ink);line-height:1}
+.sl-dstat .n.amber{color:var(--amber-deep)}
+.sl-dstat .l{font-size:10px;color:var(--muted);margin-top:4px}
+.sl-dsec{padding:9px 14px;border-top:1px solid var(--line2);font-size:12px;color:var(--body);line-height:1.5;background:#fff}
+.sl-dsec b{color:var(--ink)}
+.sl-dsec .k{font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
 /* ===== GitHub mockup ===== */
 .ghapp{border:1px solid #D0D7DE;border-radius:14px;overflow:hidden;box-shadow:0 24px 60px -40px rgba(20,30,25,.25);background:#fff}
 .gh-top{padding:14px 18px;border-bottom:1px solid #D0D7DE;display:flex;align-items:center;gap:10px;font-size:16px}
@@ -752,7 +763,7 @@ input,textarea,select{font-family:inherit}
 
   <!-- ===================== SLACK ===================== -->
   <div class="view" data-view="slack">
-    <p class="hintbar">No channel per client. Delivery updates post to one team channel, grouped so it&rsquo;s not spammy; personal nudges go to the owner as a direct message; money and legal go to the leadership channel.</p>
+    <p class="hintbar">Cerebro posts a <b>morning digest</b> and a <b>monthly recap</b> at the top of each channel, plus grouped delivery updates. No channel per client; personal nudges go to the owner as a DM; money and legal (with their own digest) stay in the leadership channel.</p>
     <div class="slackapp">
       <div class="sl-side">
         <div class="sl-team">CaseWhen</div>
@@ -1141,16 +1152,18 @@ Notion:    linked &middot; Drive: Linstol &mdash; Power BI</div></div>
   // ---------- slack ----------
   var SLK={
     team:{name:'# cerebro-team',sub:'delivery updates · the whole team',msgs:[
+      ['8:00 AM','<div class="sl-digest"><div class="sl-dh">&#9728;&#65039; Morning digest &middot; where we stand today</div><div class="sl-dstats"><div class="sl-dstat"><div class="n">3</div><div class="l">Active clients</div></div><div class="sl-dstat"><div class="n">18</div><div class="l">Open tasks</div></div><div class="sl-dstat"><div class="n amber">3</div><div class="l">Overdue</div></div><div class="sl-dstat"><div class="n">6</div><div class="l">Done y&rsquo;day</div></div></div><div class="sl-dsec"><span class="k">Moved in Notion yesterday</span>2 sections submitted (Linstol) &middot; 3 tasks completed &middot; 1 new client (Schindler) &middot; 1 decision logged &middot; 1 risk raised</div><div class="sl-dsec"><span class="k">New in Drive</span>1 report shipped (.pbix, WellBeauty) &middot; 2 client files received &middot; 4 deliverables added</div><div class="sl-dsec"><span class="k">Needs attention</span>&#9888;&#65039; Linstol discovery open (day 6) &middot; Schindler nothing opened (day 1) &middot; 3 tasks overdue on WellBeauty</div></div>'],
       ['9:02 AM','&#128640; <b>New client set up: Linstol USA &mdash; Power BI</b> &mdash; owner @austin.<div class="sl-card"><b>Everything&rsquo;s ready to work:</b><br>&bull; Notion project &mdash; board, discovery, notes &#8599;<br>&bull; GitHub <code>linstol-powerbi</code> &#8599;<br>&bull; Drive folder &#8599;<br><br>Client invited to 3 sections &middot; dev pre-work assigned &middot; Discovery <b>Wed 12 Aug</b>.</div>'],
       ['Wed 2:40 PM','&#9989; <b>Linstol</b> &middot; Kickoff and Data sources submitted. Filed to Discovery.'],
       ['Fri 4:48 PM','&#127881; <b>Linstol</b> &middot; all client sections complete. Discovery session ready for Wed 12 Aug.'],
       ['Tue 11:00 AM','&#128640; <b>New client set up: Schindler Deutschland</b> &mdash; owner @austin. Notion, GitHub and Drive ready &middot; client invited.'],
-      ['3 wks ago','&#127881; <b>WellBeauty</b> &middot; all sections complete. Discovery held, project moved to build.']
+      ['1 Jul 8:00 AM','<div class="sl-digest"><div class="sl-dh">&#128202; June recap &middot; delivery</div><div class="sl-dstats"><div class="sl-dstat"><div class="n">142</div><div class="l">Tasks done</div></div><div class="sl-dstat"><div class="n">3.2d</div><div class="l">Avg cycle</div></div><div class="sl-dstat"><div class="n">6%</div><div class="l">Overdue rate</div></div><div class="sl-dstat"><div class="n">2</div><div class="l">Delivered</div></div></div><div class="sl-dsec"><span class="k">Throughput</span>142 tasks done vs 130 created &mdash; backlog shrinking. Rollup of the Tasks database.</div><div class="sl-dsec"><span class="k">Meetings &amp; decisions</span>61 meetings logged &middot; 148 action items, 92% closed &middot; 7 decisions logged</div><div class="sl-dsec"><span class="k">Clients</span>2 onboarded &middot; avg 4 days provision &rarr; discovery &middot; 96% sections in on time</div></div>']
     ]},
     admin:{name:'🔒 cerebro-admin',sub:'money &amp; legal · Saju &amp; Austin only',msgs:[
+      ['8:00 AM','<div class="sl-digest adm"><div class="sl-dh">&#9728;&#65039; Morning digest &middot; money &amp; legal</div><div class="sl-dstats"><div class="sl-dstat"><div class="n">13</div><div class="l">Open deals</div></div><div class="sl-dstat"><div class="n">&euro;128k</div><div class="l">Pipeline</div></div><div class="sl-dstat"><div class="n">2</div><div class="l">Invoices out</div></div><div class="sl-dstat"><div class="n">42h</div><div class="l">Logged y&rsquo;day</div></div></div><div class="sl-dsec"><span class="k">Pipeline</span>Linstol moved to Won &middot; 1 new lead (proptech, Berlin) &middot; Schindler offer sent</div><div class="sl-dsec"><span class="k">Finance</span>2 invoices issued (Linstol, Accordion) &middot; &euro;8,400 payment received &middot; 42h logged across 3 clients (Clockify)</div><div class="sl-dsec"><span class="k">Legal</span>1 NDA signed (Linstol) &middot; DPA pending (WellBeauty)</div></div>'],
       ['Tue 3:41 PM','&#9989; <b>Linstol</b> &middot; Billing &amp; tax and the signed NDA received. Filed to Finance and Legal.'],
       ['Wed 9:15 AM','<b>Linstol</b> &middot; Pricing &amp; SOW draft ready for your approval. Internal-only.'],
-      ['2 wks ago','&#9989; <b>WellBeauty</b> &middot; DPA countersigned. Filed to Legal.']
+      ['1 Jul 8:00 AM','<div class="sl-digest adm"><div class="sl-dh">&#128202; June recap &middot; business</div><div class="sl-dstats"><div class="sl-dstat"><div class="n">3</div><div class="l">Deals won</div></div><div class="sl-dstat"><div class="n">&euro;46k</div><div class="l">Invoiced</div></div><div class="sl-dstat"><div class="n">78%</div><div class="l">Billable</div></div><div class="sl-dstat"><div class="n">612h</div><div class="l">Logged</div></div></div><div class="sl-dsec"><span class="k">Pipeline</span>3 deals won &middot; 5 new leads &middot; &euro;92k added to pipeline</div><div class="sl-dsec"><span class="k">Finance</span>&euro;46k invoiced &middot; &euro;38k collected &middot; 612h logged, 78% billable</div><div class="sl-dsec"><span class="k">Hours by client</span>Accordion 120h &middot; WellBeauty 96h &middot; Linstol 84h</div><div class="sl-dsec"><span class="k">Legal</span>3 NDAs &middot; 2 DPAs signed this month</div></div>']
     ]},
     dm:{name:'Cerebro',sub:'direct message · just you',msgs:[
       ['Fri 10:30 AM','&#128075; Heads up on <b>Linstol</b> &mdash; Project discovery is still open (day 6, not opened yet). Might be worth a personal nudge before the session on Wed 12 Aug.<div class="sl-card">Open the project &#8599; &nbsp;&middot;&nbsp; Re-send the client&rsquo;s link &#8599;</div>'],
