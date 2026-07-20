@@ -443,6 +443,9 @@ input,textarea,select{font-family:inherit}
 .nt-badge{font-size:11px;font-weight:600;border-radius:5px;padding:2px 8px;width:max-content}
 .nt-badge.sub{background:#DBEDDB;color:#1C6E43}.nt-badge.op{background:#FADEC9;color:#8A5017}.nt-badge.st{background:#E3E2E0;color:#787774}
 .nt-note{font-size:12.5px;color:#9B9A97;margin:-4px 0 12px;line-height:1.5}
+.nt-viewbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:-2px 0 9px}
+.nt-vc{font-size:11.5px;font-weight:600;color:#5A5852;background:#EFEFEE;border-radius:6px;padding:3px 9px}
+.nt-vf{font-family:var(--mono);font-size:11px;color:#787774;background:#F7F7F5;border:1px solid #EDEDEC;border-radius:6px;padding:2px 8px}
 .nt-board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:4px}
 @media(max-width:720px){.nt-board{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.nt-board{grid-template-columns:1fr}}
@@ -816,7 +819,8 @@ Notion:    linked &middot; Drive: Linstol &mdash; Power BI</div></div>
           <div class="nt-prop"><span class="pk">&#128187; Repo</span><span class="pv">casewhen/linstol-powerbi &#8599;</span></div>
         </div>
         <div class="nt-h">Tasks &middot; ready to work</div>
-        <div class="nt-note">The full delivery plan is queued the moment the client is set up &mdash; so work starts the second the data lands, nothing built by hand.</div>
+        <div class="nt-viewbar"><span class="nt-vc">&#9707; View of the Tasks database</span><span class="nt-vf">Filter: Project = Linstol USA</span></div>
+        <div class="nt-note">Not a separate list &mdash; one company-wide Tasks database (your GTD inbox), shown here as a board filtered to this project. The delivery plan is queued the moment the client is set up, so work starts the second the data lands.</div>
         <div class="nt-board">
           <div class="nt-bcol"><div class="nt-bh"><span>To do</span><span class="ct">4</span></div>
             <div class="nt-bcard">Build semantic model v1</div>
