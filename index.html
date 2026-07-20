@@ -442,6 +442,17 @@ input,textarea,select{font-family:inherit}
 .nt-db-r .rsrc{font-size:11.5px;color:#9B9A97}
 .nt-badge{font-size:11px;font-weight:600;border-radius:5px;padding:2px 8px;width:max-content}
 .nt-badge.sub{background:#DBEDDB;color:#1C6E43}.nt-badge.op{background:#FADEC9;color:#8A5017}.nt-badge.st{background:#E3E2E0;color:#787774}
+.nt-note{font-size:12.5px;color:#9B9A97;margin:-4px 0 12px;line-height:1.5}
+.nt-board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:4px}
+@media(max-width:720px){.nt-board{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.nt-board{grid-template-columns:1fr}}
+.nt-bcol{background:#F7F7F5;border:1px solid #EDEDEC;border-radius:9px;padding:8px}
+.nt-bh{font-size:11px;font-weight:600;color:#787774;padding:3px 6px 8px;display:flex;justify-content:space-between;align-items:center}
+.nt-bh .ct{background:#E3E2E0;border-radius:999px;padding:0 7px;font-size:10px;color:#5A5852}
+.nt-bcard{background:#fff;border:1px solid #EDEDEC;border-radius:7px;padding:8px 10px;margin-bottom:6px;font-size:12.5px;color:#37352F;box-shadow:0 1px 2px rgba(0,0,0,.03);line-height:1.35}
+.nt-bcard:last-child{margin-bottom:0}
+.nt-bcard .tag{display:inline-block;font-size:9.5px;font-weight:600;border-radius:4px;padding:1px 6px;margin-top:6px}
+.nt-bcard .tag.wait{background:#FADEC9;color:#8A5017}.nt-bcard .tag.done{background:#DBEDDB;color:#1C6E43}
 /* ===== mobile ===== */
 @media(max-width:640px){
   .app{padding:12px}
@@ -738,13 +749,15 @@ input,textarea,select{font-family:inherit}
 
   <!-- ===================== SLACK ===================== -->
   <div class="view" data-view="slack">
-    <p class="hintbar">We don&rsquo;t create a channel per client. All delivery updates post to one team channel and tag the client&rsquo;s owner; money and legal go to the leadership channel.</p>
+    <p class="hintbar">No channel per client. Delivery updates post to one team channel, grouped so it&rsquo;s not spammy; personal nudges go to the owner as a direct message; money and legal go to the leadership channel.</p>
     <div class="slackapp">
       <div class="sl-side">
         <div class="sl-team">CaseWhen</div>
         <div class="sl-sec">Channels</div>
         <button class="sl-ch on" data-ch="team"># cerebro-team</button>
         <button class="sl-ch" data-ch="admin">&#128274; cerebro-admin</button>
+        <div class="sl-sec">Direct messages</div>
+        <button class="sl-ch" data-ch="dm">&#9679; Cerebro</button>
       </div>
       <div class="sl-main" id="slMain"></div>
     </div>
@@ -801,6 +814,27 @@ Notion:    linked &middot; Drive: Linstol &mdash; Power BI</div></div>
           <div class="nt-prop"><span class="pk">&#128197; Discovery</span><span class="pv">Wed 12 Aug, 14:00 CET</span></div>
           <div class="nt-prop"><span class="pk">&#128193; Work drive</span><span class="pv">Linstol &mdash; Power BI &#8599;</span></div>
           <div class="nt-prop"><span class="pk">&#128187; Repo</span><span class="pv">casewhen/linstol-powerbi &#8599;</span></div>
+        </div>
+        <div class="nt-h">Tasks &middot; ready to work</div>
+        <div class="nt-note">The full delivery plan is queued the moment the client is set up &mdash; so work starts the second the data lands, nothing built by hand.</div>
+        <div class="nt-board">
+          <div class="nt-bcol"><div class="nt-bh"><span>To do</span><span class="ct">4</span></div>
+            <div class="nt-bcard">Build semantic model v1</div>
+            <div class="nt-bcard">Draft report layout</div>
+            <div class="nt-bcard">Set up scheduled refresh</div>
+            <div class="nt-bcard">QA checklist</div>
+          </div>
+          <div class="nt-bcol"><div class="nt-bh"><span>Waiting on data</span><span class="ct">2</span></div>
+            <div class="nt-bcard">Connect to Databricks<span class="tag wait">needs access</span></div>
+            <div class="nt-bcard">Confirm finance Excel structure<span class="tag wait">from client</span></div>
+          </div>
+          <div class="nt-bcol"><div class="nt-bh"><span>In progress</span><span class="ct">1</span></div>
+            <div class="nt-bcard">Data discovery pre-work</div>
+          </div>
+          <div class="nt-bcol"><div class="nt-bh"><span>Done</span><span class="ct">2</span></div>
+            <div class="nt-bcard">Kickoff call<span class="tag done">&#10003;</span></div>
+            <div class="nt-bcard">Workspace provisioned<span class="tag done">&#10003;</span></div>
+          </div>
         </div>
         <div class="nt-h">Discovery</div>
         <div class="nt-sub">
@@ -1102,21 +1136,21 @@ Notion:    linked &middot; Drive: Linstol &mdash; Power BI</div></div>
 
   // ---------- slack ----------
   var SLK={
-    team:{name:'# cerebro-team',sub:'all delivery updates · the whole team',msgs:[
-      ['9:02 AM','New client provisioned: <b>Linstol USA &mdash; Power BI</b>. Owner @austin. Notion project, GitHub <code>linstol-powerbi</code> and the work drive are ready.'],
-      ['9:02 AM','<b>Linstol</b> &middot; invites sent &mdash; 3 client sections + dev pre-work to @austin. Discovery booked for <b>Wed 12 Aug</b>.'],
-      ['Wed 2:14 PM','&#9989; <b>Linstol</b> &middot; Kickoff submitted by the client. Filed to the project.'],
-      ['Wed 2:40 PM','&#9989; <b>Linstol</b> &middot; Data sources submitted. Filed to Data Discovery.'],
-      ['Fri 10:30 AM','&#9888;&#65039; @austin &mdash; <b>Linstol</b>&rsquo;s Project discovery is still open on day 6. Worth a personal nudge before the session.'],
+    team:{name:'# cerebro-team',sub:'delivery updates · the whole team',msgs:[
+      ['9:02 AM','&#128640; <b>New client set up: Linstol USA &mdash; Power BI</b> &mdash; owner @austin.<div class="sl-card"><b>Everything&rsquo;s ready to work:</b><br>&bull; Notion project &mdash; board, discovery, notes &#8599;<br>&bull; GitHub <code>linstol-powerbi</code> &#8599;<br>&bull; Drive folder &#8599;<br><br>Client invited to 3 sections &middot; dev pre-work assigned &middot; Discovery <b>Wed 12 Aug</b>.</div>'],
+      ['Wed 2:40 PM','&#9989; <b>Linstol</b> &middot; Kickoff and Data sources submitted. Filed to Discovery.'],
       ['Fri 4:48 PM','&#127881; <b>Linstol</b> &middot; all client sections complete. Discovery session ready for Wed 12 Aug.'],
-      ['Tue 11:00 AM','New client provisioned: <b>Schindler Deutschland</b>. Owner @austin. Invites sent.'],
+      ['Tue 11:00 AM','&#128640; <b>New client set up: Schindler Deutschland</b> &mdash; owner @austin. Notion, GitHub and Drive ready &middot; client invited.'],
       ['3 wks ago','&#127881; <b>WellBeauty</b> &middot; all sections complete. Discovery held, project moved to build.']
     ]},
     admin:{name:'🔒 cerebro-admin',sub:'money &amp; legal · Saju &amp; Austin only',msgs:[
-      ['Tue 11:20 AM','&#9989; <b>Linstol</b> &middot; Billing &amp; tax submitted. Filed to Finance, linked to the client.'],
-      ['Tue 3:41 PM','&#9989; <b>Linstol</b> &middot; Signed NDA received. Filed to Legal &amp; Compliance.'],
-      ['Wed 9:15 AM','<b>Linstol</b> &middot; Pricing &amp; SOW draft ready here for your approval. Internal-only.'],
+      ['Tue 3:41 PM','&#9989; <b>Linstol</b> &middot; Billing &amp; tax and the signed NDA received. Filed to Finance and Legal.'],
+      ['Wed 9:15 AM','<b>Linstol</b> &middot; Pricing &amp; SOW draft ready for your approval. Internal-only.'],
       ['2 wks ago','&#9989; <b>WellBeauty</b> &middot; DPA countersigned. Filed to Legal.']
+    ]},
+    dm:{name:'Cerebro',sub:'direct message · just you',msgs:[
+      ['Fri 10:30 AM','&#128075; Heads up on <b>Linstol</b> &mdash; Project discovery is still open (day 6, not opened yet). Might be worth a personal nudge before the session on Wed 12 Aug.<div class="sl-card">Open the project &#8599; &nbsp;&middot;&nbsp; Re-send the client&rsquo;s link &#8599;</div>'],
+      ['Mon 8:00 AM','&#9728;&#65039; Morning digest &mdash; your clients:<div class="sl-card">&bull; <b>Linstol</b> &middot; 1 section left, discovery Wed 12 Aug<br>&bull; <b>Schindler</b> &middot; nothing opened yet (day 1)</div>']
     ]}
   };
   function renderSlack(ch){
