@@ -535,16 +535,14 @@ html,body{height:100%}
 body{font-family:var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.45;font-size:14px}
 img{max-width:100%;display:block}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
-.tnum{font-variant-numeric:tabular-nums}
-.greet,.ptitle,.k .val,.tile .big,.card h3{font-family:var(--display);letter-spacing:-.015em}
+.display,.greet,.ptitle,.tile .big,.card h3,.mo,.k .val{font-family:var(--display);letter-spacing:-.015em}
 
 .app{display:grid;grid-template-columns:232px 1fr;min-height:100vh}
 .side{background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
-.brand{padding:20px 20px 16px}
-.brand img{height:21px;width:auto}
+.brand{padding:20px 20px 16px}.brand img{height:21px;width:auto}
 .nav{padding:4px 12px;overflow-y:auto;flex:1}
 .nav .grp{font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);padding:16px 10px 7px}
-.nav a{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:10px;font-weight:600;font-size:13.5px;color:var(--body);position:relative}
+.nav a{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:10px;font-weight:600;font-size:13.5px;color:var(--body)}
 .nav a:hover{background:var(--line2)}
 .nav a.on{background:var(--green-50);color:var(--green-deep)}
 .nav a .badge{margin-left:auto;font-size:10px;font-weight:800;border-radius:999px;padding:1px 7px;background:var(--crit-50);color:var(--crit)}
@@ -554,45 +552,26 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 .main{min-width:0}
 .hdr{background:var(--panel);border-bottom:1px solid var(--line);padding:20px 30px}
-.hdr .greet{font-size:20px;font-weight:800;letter-spacing:-.015em}
-.hdr .callout{font-size:13.5px;color:var(--body);margin-top:3px}
-.hdr .callout b{color:var(--ink);font-weight:700}
+.greet{font-size:20px;font-weight:700}
+.callout{font-size:13.5px;color:var(--body);margin-top:3px}.callout b{color:var(--ink);font-weight:700}
 .content{padding:24px 30px 60px;max-width:1060px}
 .view{display:none}.view.on{display:block;animation:fade .22s ease}
 @keyframes fade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
-.ptitle{font-size:17px;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
-
-.kstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:22px}
-.k{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 17px}
-.k .lab{font-size:11.5px;color:var(--muted);font-weight:700}
-.k .val{font-size:26px;font-weight:800;letter-spacing:-.025em;margin-top:6px;color:var(--ink)}
-.k .val small{font-size:13px;color:var(--muted);font-weight:700}
-.k .sub{font-size:11.5px;font-weight:600;margin-top:3px}
-.k .sub.up{color:var(--green-deep)}.k .sub.dn{color:var(--crit)}.k .sub.mut{color:var(--muted)}
-
-.sh{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:24px 0 11px}
+.ptitle{font-size:17px;font-weight:700;margin-bottom:16px}
+.sh{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:26px 0 12px}
 .sh:first-child{margin-top:2px}
 
-.list{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.item{display:flex;gap:13px;padding:14px 17px;border-top:1px solid var(--line2)}
-.item:first-child{border-top:0}
-.item.clk{cursor:pointer}.item.clk:hover{background:var(--green-50)}
-.item .stripe{width:3px;border-radius:3px;flex:none;align-self:stretch}
-.stripe.r{background:var(--crit)}.stripe.a{background:var(--amber)}.stripe.g{background:var(--green)}
-.item .bd{flex:1;min-width:0}
-.item .t{font-weight:700;font-size:13.5px}
-.item .m{font-size:12.5px;color:var(--body);margin-top:2px}
-.item .rt{align-self:center;font-size:11px;font-weight:700;color:var(--muted);white-space:nowrap}
-.item .arw{align-self:center;color:var(--muted);font-size:18px;line-height:1}
-
+/* area tiles */
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
-.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:17px;text-align:left;transition:border-color .15s,transform .15s}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:17px;text-align:left;transition:border-color .15s,transform .15s;position:relative}
 .tile:hover{border-color:var(--green);transform:translateY(-2px)}
 .tile .tt{font-weight:700;font-size:13px;color:var(--body)}
-.tile .big{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:9px 0 2px;color:var(--ink)}
-.tile .big small{font-size:12.5px;color:var(--muted);font-weight:700}
-.tile .cap{font-size:12px;color:var(--muted)}
+.tile .big{font-size:23px;font-weight:700;margin:9px 0 2px;color:var(--ink)}
+.tile .big small{font-size:12.5px;color:var(--muted);font-weight:600;font-family:var(--sans);letter-spacing:0}
+.tile .cap{font-size:12px;color:var(--muted);line-height:1.4}
 .tile .row{display:flex;gap:6px;margin-top:11px;flex-wrap:wrap}
+.tile .flag{position:absolute;top:15px;right:15px;width:8px;height:8px;border-radius:50%}
+.flag.r{background:var(--crit)}.flag.a{background:var(--amber)}
 
 .chip{display:inline-flex;align-items:center;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
 .c-ok{background:var(--green-100);color:var(--green-deep)}
@@ -600,8 +579,18 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .c-crit{background:var(--crit-50);color:var(--crit)}
 .c-mut{background:var(--line2);color:var(--muted)}
 
+.list{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.item{display:flex;gap:13px;padding:14px 17px;border-top:1px solid var(--line2)}
+.item:first-child{border-top:0}
+.item.clk{cursor:pointer}.item.clk:hover{background:var(--green-50)}
+.item .stripe{width:3px;border-radius:3px;flex:none;align-self:stretch}
+.stripe.r{background:var(--crit)}.stripe.a{background:var(--amber)}.stripe.g{background:var(--green)}
+.item .bd{flex:1;min-width:0}.item .t{font-weight:700;font-size:13.5px}.item .m{font-size:12.5px;color:var(--body);margin-top:2px}
+.item .rt{align-self:center;font-size:11px;font-weight:700;color:var(--muted);white-space:nowrap}
+.item .arw{align-self:center;color:var(--muted);font-size:18px;line-height:1}
+
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-bottom:13px}
-.card h3{font-size:13.5px;font-weight:800;margin-bottom:3px}
+.card h3{font-size:14px;font-weight:700;margin-bottom:3px}
 .card .cs{font-size:12.5px;color:var(--muted);margin-bottom:13px}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .tbl{width:100%;border-collapse:collapse;font-size:13px}
@@ -617,38 +606,44 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .callbox.warn{background:var(--amber-50);border:1px solid #f0dca8}
 .callbox.crit{background:var(--crit-50);border:1px solid #eecabc}
 .callbox b{font-weight:800}
+.note{font-size:12px;color:var(--muted)}.footn{font-size:11px;color:#b3b0ad;margin-top:24px}
 
-.fc{display:flex;align-items:flex-end;gap:9px;height:92px;margin-top:6px}
-.fc .c{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;justify-content:flex-end;height:100%}
-.fc .b{width:100%;max-width:40px;background:var(--green-100);border-radius:5px 5px 0 0}
-.fc .b.p{background:repeating-linear-gradient(45deg,var(--green-100),var(--green-100) 4px,#eaf6f2 4px,#eaf6f2 8px)}
-.fc .bl{font-size:10.5px;color:var(--muted);font-weight:700}.fc .bv{font-size:10px;font-weight:800}
-
+/* calendar */
+.cal-top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.cal-top .mo{font-size:16px;font-weight:700}
+.legend{display:flex;gap:14px;margin-left:auto;flex-wrap:wrap}
+.legend span{font-size:11.5px;color:var(--body);font-weight:600;display:flex;align-items:center;gap:6px}
+.legend i{width:9px;height:9px;border-radius:3px;display:inline-block}
+.i-bill{background:var(--green)}.i-pay{background:var(--amber)}.i-tax{background:var(--crit)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.dow{font-size:10px;font-weight:800;letter-spacing:.05em;color:var(--muted);text-transform:uppercase;text-align:center;padding-bottom:2px}
+.cell{min-height:76px;border:1px solid var(--line2);border-radius:9px;padding:6px 7px;background:var(--panel)}
+.cell.empty{border:0;background:transparent}
+.cell .dn{font-weight:700;font-size:11.5px;color:var(--body)}
+.cell.tdy{border-color:var(--green);box-shadow:inset 0 0 0 1px var(--green)}
+.ev{display:block;font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.e-bill{background:var(--green-100);color:var(--green-deep)}
+.e-pay{background:var(--amber-50);color:var(--amber-deep)}
+.e-tax{background:var(--crit-50);color:var(--crit)}
 .person{display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid var(--line2)}
 .person:first-child{border-top:0}
 .person .pa{width:34px;height:34px;border-radius:50%;background:var(--green-100);color:var(--green-deep);display:grid;place-items:center;font-weight:800;font-size:12.5px;flex:none}
-.person .pn{font-weight:700;font-size:13.5px}
-.person .pr{font-size:12px;color:var(--muted)}
-.person .pright{margin-left:auto;display:flex;align-items:center;gap:10px}
-.person.off{opacity:.6}
+.person .pn{font-weight:700;font-size:13.5px}.person .pr{font-size:12px;color:var(--muted)}
+.person .pright{margin-left:auto}
 .togg{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--body);font-weight:600;cursor:pointer;margin-bottom:12px}
 .togg input{width:15px;height:15px;accent-color:var(--green)}
 .btn{background:var(--green);color:#fff;font-weight:700;font-size:13px;padding:10px 18px;border-radius:var(--pill)}
-.btn.ghost{background:#fff;color:var(--ink);border:1px solid #d9dee2}
-.note{font-size:12px;color:var(--muted)}
-.footn{font-size:11px;color:#b3b0ad;margin-top:24px}
 
-@media(max-width:820px){
+@media(max-width:860px){
   .app{grid-template-columns:1fr}
   .side{position:static;height:auto;flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid var(--line);align-items:center}
-  .brand{padding:14px 16px}
-  .nav{display:flex;gap:3px;overflow-x:auto;padding:8px 10px;flex:1}
-  .nav .grp{display:none}.nav a{white-space:nowrap;padding:8px 12px}
-  .side .foot{display:none}
-  .kstrip{grid-template-columns:1fr 1fr}.tiles{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}
+  .brand{padding:14px 16px}.nav{display:flex;gap:3px;overflow-x:auto;padding:8px 10px;flex:1}
+  .nav .grp{display:none}.nav a{white-space:nowrap;padding:8px 12px}.side .foot{display:none}
+  .tiles{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}
   .content{padding:18px 16px 48px}.hdr{padding:16px 18px}
+  .cell{min-height:58px}.ev{font-size:9px}
 }
-@media(max-width:520px){.tiles{grid-template-columns:1fr}}
+@media(max-width:560px){.tiles{grid-template-columns:1fr}.legend{width:100%;margin-left:0}}
 </style>
 </head>
 <body>
@@ -658,10 +653,10 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     <nav class=&quot;nav&quot; id=&quot;nav&quot;>
       <div class=&quot;grp&quot;>Admin</div>
       <a data-v=&quot;hub&quot; class=&quot;on&quot;>Dashboard</a>
-      <a data-v=&quot;money&quot;>Money</a>
-      <a data-v=&quot;invoices&quot;>Invoices <span class=&quot;badge&quot;>3</span></a>
+      <a data-v=&quot;calendar&quot;>Calendar</a>
+      <a data-v=&quot;invoices&quot;>Invoices &amp;amp; Bills <span class=&quot;badge&quot;>3</span></a>
+      <a data-v=&quot;spend&quot;>Recurring spend</a>
       <a data-v=&quot;payroll&quot;>Payroll <span class=&quot;badge&quot;>1</span></a>
-      <a data-v=&quot;subs&quot;>Subscriptions</a>
       <a data-v=&quot;leads&quot;>Clients &amp;amp; Leads <span class=&quot;badge&quot;>2</span></a>
       <a data-v=&quot;personnel&quot;>Personnel</a>
       <a data-v=&quot;compliance&quot;>Compliance <span class=&quot;badge&quot;>1</span></a>
@@ -679,62 +674,67 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     </div>
     <div class=&quot;content&quot;>
 
-    <!-- HUB -->
+    <!-- HUB: areas first, then needs-you -->
     <section class=&quot;view on&quot; id=&quot;hub&quot;>
-      <div class=&quot;kstrip&quot;>
-        <div class=&quot;k&quot;><div class=&quot;lab&quot;>Recurring run-rate</div><div class=&quot;val&quot;>€1.0k<small>/mo</small></div><div class=&quot;sub up&quot;>Down from €3.1k</div></div>
-        <div class=&quot;k&quot;><div class=&quot;lab&quot;>Invoices to handle</div><div class=&quot;val&quot;>3</div><div class=&quot;sub dn&quot;>1 feed error</div></div>
-        <div class=&quot;k&quot;><div class=&quot;lab&quot;>Payroll</div><div class=&quot;val&quot;>1</div><div class=&quot;sub dn&quot;>Tax deadline</div></div>
-        <div class=&quot;k&quot;><div class=&quot;lab&quot;>Leads waiting</div><div class=&quot;val&quot;>2</div><div class=&quot;sub dn&quot;>1 over SLA</div></div>
+      <div class=&quot;sh&quot;>Areas</div>
+      <div class=&quot;tiles&quot;>
+        <button class=&quot;tile&quot; data-go=&quot;calendar&quot;><div class=&quot;tt&quot;>Calendar</div><div class=&quot;big&quot;>Next: payroll</div><div class=&quot;cap&quot;>What's due when — bills, payroll &amp;amp; tax</div><div class=&quot;row&quot;><span class=&quot;chip c-warn&quot;>Salary run · Aug 25</span></div></button>
+        <button class=&quot;tile&quot; data-go=&quot;invoices&quot;><span class=&quot;flag r&quot;></span><div class=&quot;tt&quot;>Invoices &amp;amp; Bills</div><div class=&quot;big&quot;>3<small> to handle</small></div><div class=&quot;cap&quot;>Bills coming in, tracked and booked</div><div class=&quot;row&quot;><span class=&quot;chip c-crit&quot;>Feed error</span></div></button>
+        <button class=&quot;tile&quot; data-go=&quot;spend&quot;><div class=&quot;tt&quot;>Recurring spend</div><div class=&quot;big&quot;>€1.0k<small>/mo</small></div><div class=&quot;cap&quot;>Fixed cost of tools &amp;amp; services each month</div><div class=&quot;row&quot;><span class=&quot;chip c-ok&quot;>6 active</span><span class=&quot;chip c-mut&quot;>3 ended</span></div></button>
+        <button class=&quot;tile&quot; data-go=&quot;payroll&quot;><span class=&quot;flag r&quot;></span><div class=&quot;tt&quot;>Payroll</div><div class=&quot;big&quot;>Monthly</div><div class=&quot;cap&quot;>Salaries via the tax advisor</div><div class=&quot;row&quot;><span class=&quot;chip c-crit&quot;>Tax due</span></div></button>
+        <button class=&quot;tile&quot; data-go=&quot;leads&quot;><span class=&quot;flag a&quot;></span><div class=&quot;tt&quot;>Clients &amp;amp; Leads</div><div class=&quot;big&quot;>2 warm</div><div class=&quot;cap&quot;>Real buyers, DE/EN, reply-time tracked</div><div class=&quot;row&quot;><span class=&quot;chip c-ok&quot;>1 recently won</span></div></button>
+        <button class=&quot;tile&quot; data-go=&quot;personnel&quot;><div class=&quot;tt&quot;>Personnel</div><div class=&quot;big&quot;>5<small> active</small></div><div class=&quot;cap&quot;>Team, roles &amp;amp; payroll status</div><div class=&quot;row&quot;><span class=&quot;chip c-mut&quot;>2 inactive</span></div></button>
+        <button class=&quot;tile&quot; data-go=&quot;compliance&quot;><span class=&quot;flag r&quot;></span><div class=&quot;tt&quot;>Compliance</div><div class=&quot;big&quot;>1<small> due</small></div><div class=&quot;cap&quot;>Tax &amp;amp; legal deadlines, contracts</div><div class=&quot;row&quot;><span class=&quot;chip c-crit&quot;>VAT filing</span></div></button>
       </div>
 
       <div class=&quot;sh&quot;>Needs you today</div>
       <div class=&quot;list&quot;>
-        <div class=&quot;item clk&quot; data-go=&quot;compliance&quot;><span class=&quot;stripe r&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Quarterly VAT (USt) — documents requested</div><div class=&quot;m&quot;>Tax advisor asked for supporting documents. Respond before the filing date.</div></div><span class=&quot;rt&quot;>Compliance</span><span class=&quot;arw&quot;>›</span></div>
-        <div class=&quot;item clk&quot; data-go=&quot;payroll&quot;><span class=&quot;stripe r&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Payroll tax (Lohnsteuer) overdue</div><div class=&quot;m&quot;>A reminder notice arrived. Clear it before penalties apply.</div></div><span class=&quot;rt&quot;>Payroll</span><span class=&quot;arw&quot;>›</span></div>
+        <div class=&quot;item clk&quot; data-go=&quot;compliance&quot;><span class=&quot;stripe r&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Quarterly VAT (USt) — documents requested</div><div class=&quot;m&quot;>The tax advisor asked for supporting documents ahead of the filing date.</div></div><span class=&quot;rt&quot;>Compliance</span><span class=&quot;arw&quot;>›</span></div>
+        <div class=&quot;item clk&quot; data-go=&quot;payroll&quot;><span class=&quot;stripe r&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Payroll tax (Lohnsteuer) overdue</div><div class=&quot;m&quot;>A reminder notice arrived from the tax office. Clear it before penalties apply.</div></div><span class=&quot;rt&quot;>Payroll</span><span class=&quot;arw&quot;>›</span></div>
         <div class=&quot;item clk&quot; data-go=&quot;invoices&quot;><span class=&quot;stripe r&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Invoice feed is erroring</div><div class=&quot;m&quot;>The receipt-forwarding inbox is failing, so some invoices aren't reaching the books.</div></div><span class=&quot;rt&quot;>Invoices</span><span class=&quot;arw&quot;>›</span></div>
         <div class=&quot;item clk&quot; data-go=&quot;leads&quot;><span class=&quot;stripe a&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>A real lead has waited too long</div><div class=&quot;m&quot;>A qualified enquiry sat unanswered in the noisy inbox. Reply or hand off today.</div></div><span class=&quot;rt&quot;>Leads</span><span class=&quot;arw&quot;>›</span></div>
-        <div class=&quot;item clk&quot; data-go=&quot;money&quot;><span class=&quot;stripe a&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Overlapping accounting providers</div><div class=&quot;m&quot;>More than one accountant is active during the handover. Confirm a single primary.</div></div><span class=&quot;rt&quot;>Money</span><span class=&quot;arw&quot;>›</span></div>
-      </div>
-
-      <div class=&quot;sh&quot;>Areas</div>
-      <div class=&quot;tiles&quot;>
-        <button class=&quot;tile&quot; data-go=&quot;money&quot;><div class=&quot;tt&quot;>Money</div><div class=&quot;big&quot;>€1.0k<small>/mo</small></div><div class=&quot;cap&quot;>Confirmed recurring run-rate</div><div class=&quot;row&quot;><span class=&quot;chip c-ok&quot;>6 active</span><span class=&quot;chip c-mut&quot;>3 ended</span></div></button>
-        <button class=&quot;tile&quot; data-go=&quot;invoices&quot;><div class=&quot;tt&quot;>Invoices</div><div class=&quot;big&quot;>3<small> to handle</small></div><div class=&quot;cap&quot;>Tracked going forward · archive at the ready</div><div class=&quot;row&quot;><span class=&quot;chip c-crit&quot;>Feed error</span></div></button>
-        <button class=&quot;tile&quot; data-go=&quot;payroll&quot;><div class=&quot;tt&quot;>Payroll</div><div class=&quot;big&quot;>Monthly</div><div class=&quot;cap&quot;>Salary runs via the tax advisor</div><div class=&quot;row&quot;><span class=&quot;chip c-crit&quot;>Tax due</span></div></button>
-        <button class=&quot;tile&quot; data-go=&quot;subs&quot;><div class=&quot;tt&quot;>Subscriptions</div><div class=&quot;big&quot;>6<small> active</small></div><div class=&quot;cap&quot;>Vendors + renewals, validated</div><div class=&quot;row&quot;><span class=&quot;chip c-warn&quot;>1 price rise</span></div></button>
-        <button class=&quot;tile&quot; data-go=&quot;leads&quot;><div class=&quot;tt&quot;>Clients &amp;amp; Leads</div><div class=&quot;big&quot;>2 warm</div><div class=&quot;cap&quot;>Real buyers, DE/EN, SLA-tracked</div><div class=&quot;row&quot;><span class=&quot;chip c-ok&quot;>1 recently won</span></div></button>
-        <button class=&quot;tile&quot; data-go=&quot;personnel&quot;><div class=&quot;tt&quot;>Personnel</div><div class=&quot;big&quot;>5<small> active</small></div><div class=&quot;cap&quot;>Team, roles &amp;amp; payroll status</div><div class=&quot;row&quot;><span class=&quot;chip c-mut&quot;>2 inactive</span></div></button>
       </div>
       <p class=&quot;footn&quot;>CaseWhen OS · Admin — internal preview with sample data.</p>
     </section>
 
-    <!-- MONEY -->
-    <section class=&quot;view&quot; id=&quot;money&quot;>
-      <div class=&quot;ptitle&quot;>Money</div>
-      <div class=&quot;callbox warn&quot;><span>▲</span><div><b>Kept honest:</b> a €2.1k/mo lead-gen contract was <b>cancelled</b>, so it's out of the run-rate — which drops from €3.1k to <b>~€1.0k/mo</b>. Validated against cancellation emails.</div></div>
-      <div class=&quot;kstrip&quot;>
-        <div class=&quot;k&quot;><div class=&quot;lab&quot;>Confirmed run-rate</div><div class=&quot;val&quot;>€1.0k<small>/mo</small></div><div class=&quot;sub mut&quot;>6 active</div></div>
-        <div class=&quot;k&quot;><div class=&quot;lab&quot;>Just cancelled</div><div class=&quot;val&quot;>€2.1k</div><div class=&quot;sub up&quot;>Removed</div></div>
-        <div class=&quot;k&quot;><div class=&quot;lab&quot;>Bank alerts</div><div class=&quot;val&quot;>Live</div><div class=&quot;sub mut&quot;>Sparkasse</div></div>
-        <div class=&quot;k&quot;><div class=&quot;lab&quot;>Accountants</div><div class=&quot;val&quot;>3→1</div><div class=&quot;sub dn&quot;>Consolidate</div></div>
+    <!-- CALENDAR -->
+    <section class=&quot;view&quot; id=&quot;calendar&quot;>
+      <div class=&quot;ptitle&quot;>Calendar</div>
+      <div class=&quot;cal-top&quot;>
+        <div class=&quot;mo&quot;>August 2026</div>
+        <div class=&quot;legend&quot;><span><i class=&quot;i-bill&quot;></i> Bill / renewal</span><span><i class=&quot;i-pay&quot;></i> Payroll</span><span><i class=&quot;i-tax&quot;></i> Tax / deadline</span></div>
       </div>
-      <div class=&quot;g2&quot;>
-        <div class=&quot;card&quot;><h3>90-day outlook</h3><div class=&quot;cs&quot;>Projected from confirmed recurring lines only.</div>
-          <div class=&quot;fc&quot;><div class=&quot;c&quot;><div class=&quot;b&quot; style=&quot;height:60%&quot;></div><div class=&quot;bv&quot;>€1.0k</div><div class=&quot;bl&quot;>Aug</div></div><div class=&quot;c&quot;><div class=&quot;b&quot; style=&quot;height:64%&quot;></div><div class=&quot;bv&quot;>€1.1k</div><div class=&quot;bl&quot;>Sep</div></div><div class=&quot;c&quot;><div class=&quot;b p&quot; style=&quot;height:62%&quot;></div><div class=&quot;bv&quot;>€1.0k</div><div class=&quot;bl&quot;>Oct</div></div></div>
-          <p class=&quot;note&quot; style=&quot;margin-top:11px&quot;>Excludes payroll, one-offs and usage-based AI. Solid = booked, hatched = projected.</p></div>
-        <div class=&quot;card&quot;><h3>Cash &amp;amp; bank</h3><div class=&quot;cs&quot;>From bank alert emails — a live balance needs a bank API.</div>
-          <div class=&quot;item&quot; style=&quot;padding:11px 0&quot;><span class=&quot;stripe g&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Bank alerts tracked</div><div class=&quot;m&quot;>Balance and transaction notices flowing in, ready to turn into a live cash view.</div></div></div></div>
+      <div class=&quot;cal&quot;>
+        <div class=&quot;dow&quot;>Mon</div><div class=&quot;dow&quot;>Tue</div><div class=&quot;dow&quot;>Wed</div><div class=&quot;dow&quot;>Thu</div><div class=&quot;dow&quot;>Fri</div><div class=&quot;dow&quot;>Sat</div><div class=&quot;dow&quot;>Sun</div>
+        <div class=&quot;cell empty&quot;></div><div class=&quot;cell empty&quot;></div><div class=&quot;cell empty&quot;></div><div class=&quot;cell empty&quot;></div><div class=&quot;cell empty&quot;></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>1</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>2</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>3</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>4</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>5</div><span class=&quot;ev e-bill&quot;>Ahrefs renews</span></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>6</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>7</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>8</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>9</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>10</div><span class=&quot;ev e-tax&quot;>VAT (USt) due</span><span class=&quot;ev e-tax&quot;>Lohnsteuer</span></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>11</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>12</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>13</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>14</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>15</div><span class=&quot;ev e-bill&quot;>Accounting invoice</span></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>16</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>17</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>18</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>19</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>20</div><span class=&quot;ev e-bill&quot;>Telco bill</span></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>21</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>22</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>23</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>24</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>25</div><span class=&quot;ev e-pay&quot;>Salary run</span></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>26</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>27</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>28</div><span class=&quot;ev e-bill&quot;>1Password</span></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>29</div></div><div class=&quot;cell&quot;><div class=&quot;dn&quot;>30</div></div>
+        <div class=&quot;cell&quot;><div class=&quot;dn&quot;>31</div></div>
       </div>
+      <p class=&quot;note&quot; style=&quot;margin-top:12px&quot;>Dates are built from the recurring vendors and filing rhythm Cerebro sees in the mail. A live version syncs each item's real due date.</p>
     </section>
 
-    <!-- INVOICES -->
+    <!-- INVOICES &amp; BILLS -->
     <section class=&quot;view&quot; id=&quot;invoices&quot;>
-      <div class=&quot;ptitle&quot;>Invoices</div>
-      <div class=&quot;callbox crit&quot;><span>●</span><div><b>Two live problems:</b> the receipt-forwarding inbox is erroring (invoices dropped), and there's no duplicate key — one invoice was re-sent many times. Both fixable.</div></div>
-      <div class=&quot;sh&quot;>Incoming — tracked from now on</div>
+      <div class=&quot;ptitle&quot;>Invoices &amp;amp; Bills</div>
+      <div class=&quot;callbox crit&quot;><span>●</span><div><b>Two live problems:</b> the receipt-forwarding inbox is erroring (some bills never reach the books), and there's no duplicate check — one invoice was re-sent many times. Both fixable.</div></div>
+      <div class=&quot;sh&quot;>Coming in — tracked from now on</div>
       <div class=&quot;card scroll&quot;><table class=&quot;tbl&quot;>
-        <thead><tr><th>Vendor</th><th>Reference</th><th class=&quot;num&quot;>Gross</th><th>Status</th></tr></thead>
+        <thead><tr><th>Vendor</th><th>Reference</th><th class=&quot;num&quot;>Amount</th><th>Status</th></tr></thead>
         <tbody>
           <tr><td class=&quot;vn&quot;>Accounting (DATEV)</td><td class=&quot;ct&quot;>RE 2026/1324</td><td class=&quot;num&quot;>€612.85</td><td><span class=&quot;chip c-ok&quot;>Booked</span></td></tr>
           <tr><td class=&quot;vn&quot;>Ahrefs</td><td class=&quot;ct&quot;>Receipt</td><td class=&quot;num&quot;>€268.00</td><td><span class=&quot;chip c-warn&quot;>To forward</span></td></tr>
@@ -743,10 +743,30 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
       </table></div>
       <div class=&quot;g2&quot;>
         <div class=&quot;card&quot;><h3>Auto-routing</h3><div class=&quot;cs&quot;>The manual step Cerebro removes.</div>
-          <div class=&quot;item&quot; style=&quot;padding:11px 0&quot;><span class=&quot;stripe g&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Invoices forwarded by hand → invoices@</div><div class=&quot;m&quot;>Detect an invoice in a founder's inbox and route it to the AP pipeline automatically.</div></div></div></div>
+          <div class=&quot;item&quot; style=&quot;padding:11px 0&quot;><span class=&quot;stripe g&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Bills forwarded by hand → invoices@</div><div class=&quot;m&quot;>Detect an invoice in a founder's inbox and route it to the books automatically.</div></div></div></div>
         <div class=&quot;card&quot;><h3>Past invoices — at the ready</h3><div class=&quot;cs&quot;>Not reconciled retroactively; searchable when needed.</div>
           <div class=&quot;row&quot; style=&quot;display:flex;gap:6px;flex-wrap:wrap&quot;><span class=&quot;chip c-mut&quot;>Searchable archive</span><span class=&quot;chip c-mut&quot;>by vendor / date / amount</span></div></div>
       </div>
+    </section>
+
+    <!-- RECURRING SPEND -->
+    <section class=&quot;view&quot; id=&quot;spend&quot;>
+      <div class=&quot;ptitle&quot;>Recurring spend</div>
+      <div class=&quot;callbox warn&quot;><span>▲</span><div><b>What this means:</b> the fixed amount CaseWhen pays every month for tools and services. Validated against cancellation emails — a €2.1k/mo lead-gen contract was <b>cancelled</b>, dropping the total from €3.1k to <b>~€1.0k/mo</b>.</div></div>
+      <div class=&quot;card scroll&quot;><table class=&quot;tbl&quot;>
+        <thead><tr><th>Vendor</th><th>What for</th><th class=&quot;num&quot;>Per month</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class=&quot;vn&quot;>Accounting (DATEV)</td><td class=&quot;ct&quot;>Bookkeeping</td><td class=&quot;num&quot;>€612.85</td><td><span class=&quot;chip c-ok&quot;>Active</span></td></tr>
+          <tr><td class=&quot;vn&quot;>Ahrefs</td><td class=&quot;ct&quot;>SEO tooling</td><td class=&quot;num&quot;>€268.00</td><td><span class=&quot;chip c-ok&quot;>Active</span></td></tr>
+          <tr><td class=&quot;vn&quot;>Telco</td><td class=&quot;ct&quot;>Mobile</td><td class=&quot;num&quot;>€27–90</td><td><span class=&quot;chip c-warn&quot;>Overage</span></td></tr>
+          <tr><td class=&quot;vn&quot;>EV charging</td><td class=&quot;ct&quot;>Company car</td><td class=&quot;num&quot;>€15+</td><td><span class=&quot;chip c-ok&quot;>Active</span></td></tr>
+          <tr><td class=&quot;vn&quot;>Team benefit</td><td class=&quot;ct&quot;>Wellbeing</td><td class=&quot;num&quot;>~€13+</td><td><span class=&quot;chip c-ok&quot;>Active</span></td></tr>
+          <tr><td class=&quot;vn&quot;>1Password</td><td class=&quot;ct&quot;>Security</td><td class=&quot;num&quot;>annual</td><td><span class=&quot;chip c-warn&quot;>Price ↑</span></td></tr>
+          <tr class=&quot;off&quot;><td class=&quot;vn&quot;>Lead-gen agency</td><td class=&quot;ct&quot;>Marketing</td><td class=&quot;num&quot;>€2,142</td><td><span class=&quot;chip c-crit&quot;>Cancelled</span></td></tr>
+          <tr class=&quot;off&quot;><td class=&quot;vn&quot;>Expense cards</td><td class=&quot;ct&quot;>Finance</td><td class=&quot;num&quot;>—</td><td><span class=&quot;chip c-mut&quot;>Closed</span></td></tr>
+          <tr class=&quot;off&quot;><td class=&quot;vn&quot;>Coworking</td><td class=&quot;ct&quot;>Office</td><td class=&quot;num&quot;>—</td><td><span class=&quot;chip c-mut&quot;>Ended</span></td></tr>
+        </tbody>
+      </table></div>
     </section>
 
     <!-- PAYROLL -->
@@ -758,31 +778,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
           <div class=&quot;item&quot; style=&quot;padding:11px 0&quot;><span class=&quot;stripe a&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Salary run — this month</div><div class=&quot;m&quot;>Awaiting signature.</div></div><span class=&quot;chip c-warn&quot;>Sign</span></div>
           <div class=&quot;item&quot; style=&quot;padding:11px 0;border-top:1px solid var(--line2)&quot;><span class=&quot;stripe g&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Salary run — last month</div><div class=&quot;m&quot;>Signed &amp;amp; filed.</div></div><span class=&quot;chip c-ok&quot;>Done</span></div>
           <div class=&quot;item&quot; style=&quot;padding:11px 0;border-top:1px solid var(--line2)&quot;><span class=&quot;stripe r&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Payroll tax (Lohnsteuer)</div><div class=&quot;m&quot;>Reminder from the tax office — overdue.</div></div><span class=&quot;chip c-crit&quot;>Overdue</span></div></div>
-        <div class=&quot;card&quot;><h3>How it runs</h3><div class=&quot;cs&quot;>Processed through the tax advisor (Steuerberater).</div>
-          <div class=&quot;item&quot; style=&quot;padding:11px 0&quot;><span class=&quot;stripe g&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Monthly cadence</div><div class=&quot;m&quot;>Statements prepared, signed, and filed; social contributions handled.</div></div></div>
-          <p class=&quot;note&quot; style=&quot;margin-top:6px&quot;>Full roster in <b>Personnel</b>.</p></div>
+        <div class=&quot;card&quot;><h3>How it runs</h3><div class=&quot;cs&quot;>Processed through the tax advisor each month.</div>
+          <div class=&quot;item&quot; style=&quot;padding:11px 0&quot;><span class=&quot;stripe g&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Prepared, signed, filed</div><div class=&quot;m&quot;>Statements and social contributions handled monthly. Roster in Personnel.</div></div></div></div>
       </div>
-    </section>
-
-    <!-- SUBSCRIPTIONS -->
-    <section class=&quot;view&quot; id=&quot;subs&quot;>
-      <div class=&quot;ptitle&quot;>Subscriptions</div>
-      <p class=&quot;note&quot; style=&quot;margin:-6px 0 16px&quot;>Every recurring vendor, separated into live, changed, and ended — validated against cancellation emails.</p>
-      <div class=&quot;card scroll&quot;><table class=&quot;tbl&quot;>
-        <thead><tr><th>Vendor</th><th>Category</th><th class=&quot;num&quot;>Amount</th><th>Cadence</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td class=&quot;vn&quot;>Accounting (DATEV)</td><td class=&quot;ct&quot;>Finance</td><td class=&quot;num&quot;>€612.85</td><td>Monthly</td><td><span class=&quot;chip c-ok&quot;>Active</span></td></tr>
-          <tr><td class=&quot;vn&quot;>Ahrefs</td><td class=&quot;ct&quot;>SEO</td><td class=&quot;num&quot;>€268.00</td><td>Monthly</td><td><span class=&quot;chip c-ok&quot;>Active</span></td></tr>
-          <tr><td class=&quot;vn&quot;>Telco</td><td class=&quot;ct&quot;>Mobile</td><td class=&quot;num&quot;>€27–90</td><td>Monthly</td><td><span class=&quot;chip c-warn&quot;>Overage</span></td></tr>
-          <tr><td class=&quot;vn&quot;>EV charging</td><td class=&quot;ct&quot;>Vehicle</td><td class=&quot;num&quot;>€15+</td><td>Monthly</td><td><span class=&quot;chip c-ok&quot;>Active</span></td></tr>
-          <tr><td class=&quot;vn&quot;>Team benefit</td><td class=&quot;ct&quot;>Wellbeing</td><td class=&quot;num&quot;>~€13+</td><td>Monthly</td><td><span class=&quot;chip c-ok&quot;>Active</span></td></tr>
-          <tr><td class=&quot;vn&quot;>1Password</td><td class=&quot;ct&quot;>Security</td><td class=&quot;num&quot;>annual</td><td>Annual</td><td><span class=&quot;chip c-warn&quot;>Price ↑</span></td></tr>
-          <tr><td class=&quot;vn&quot;>Anthropic</td><td class=&quot;ct&quot;>AI</td><td class=&quot;num&quot;>usage</td><td>Per-use</td><td><span class=&quot;chip c-ok&quot;>Live</span></td></tr>
-          <tr class=&quot;off&quot;><td class=&quot;vn&quot;>Lead-gen agency</td><td class=&quot;ct&quot;>Marketing</td><td class=&quot;num&quot;>€2,142</td><td>—</td><td><span class=&quot;chip c-crit&quot;>Cancelled</span></td></tr>
-          <tr class=&quot;off&quot;><td class=&quot;vn&quot;>Expense cards</td><td class=&quot;ct&quot;>Finance</td><td class=&quot;num&quot;>—</td><td>—</td><td><span class=&quot;chip c-mut&quot;>Closed</span></td></tr>
-          <tr class=&quot;off&quot;><td class=&quot;vn&quot;>Coworking</td><td class=&quot;ct&quot;>Office</td><td class=&quot;num&quot;>—</td><td>—</td><td><span class=&quot;chip c-mut&quot;>Ended</span></td></tr>
-        </tbody>
-      </table></div>
     </section>
 
     <!-- LEADS -->
@@ -797,16 +795,14 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
           <div class=&quot;item&quot; style=&quot;padding:11px 0&quot;><span class=&quot;stripe g&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Media-analytics client 🇬🇧</div><div class=&quot;m&quot;>Won via a fast reply + booking link.</div></div><span class=&quot;chip c-ok&quot;>Won</span></div>
           <div class=&quot;item&quot; style=&quot;padding:11px 0;border-top:1px solid var(--line2)&quot;><span class=&quot;stripe a&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>Public-sector tender 🇩🇪</div><div class=&quot;m&quot;>Answered late — tighten the response window.</div></div><span class=&quot;chip c-warn&quot;>Slow</span></div></div>
       </div>
-      <div class=&quot;card&quot;><h3>Sequences ready</h3><div class=&quot;cs&quot;>Full DE + EN four-touch cold-nurture and warm fast-reply templates, in CaseWhen's plain voice.</div>
-        <div class=&quot;row&quot; style=&quot;display:flex;gap:6px;flex-wrap:wrap&quot;><span class=&quot;chip c-ok&quot;>🇬🇧 English</span><span class=&quot;chip c-ok&quot;>🇩🇪 German (Sie→du)</span><span class=&quot;chip c-mut&quot;>1-business-day SLA</span><span class=&quot;chip c-mut&quot;>Applicants → careers@</span></div></div>
     </section>
 
     <!-- PERSONNEL -->
     <section class=&quot;view&quot; id=&quot;personnel&quot;>
       <div class=&quot;ptitle&quot;>Personnel</div>
-      <p class=&quot;note&quot; style=&quot;margin:-6px 0 14px&quot;>Everyone past and present, their role and payroll status. Past team members are marked inactive.</p>
+      <p class=&quot;note&quot; style=&quot;margin:-6px 0 14px&quot;>Everyone past and present, their role and status. Past team members are marked inactive.</p>
       <label class=&quot;togg&quot;><input type=&quot;checkbox&quot; id=&quot;hideOff&quot;> Hide inactive</label>
-      <div class=&quot;card&quot; id=&quot;peopleCard&quot;>
+      <div class=&quot;card&quot;>
         <div class=&quot;person&quot;><div class=&quot;pa&quot;>A</div><div><div class=&quot;pn&quot;>Austin</div><div class=&quot;pr&quot;>Founder · Finance, Legal &amp;amp; Ops</div></div><div class=&quot;pright&quot;><span class=&quot;chip c-ok&quot;>Active</span></div></div>
         <div class=&quot;person&quot;><div class=&quot;pa&quot;>S</div><div><div class=&quot;pn&quot;>Saju</div><div class=&quot;pr&quot;>Founder · Delivery &amp;amp; Data</div></div><div class=&quot;pright&quot;><span class=&quot;chip c-ok&quot;>Active</span></div></div>
         <div class=&quot;person&quot;><div class=&quot;pa&quot;>LM</div><div><div class=&quot;pn&quot;>Lena M.</div><div class=&quot;pr&quot;>BI Consultant · since 2024</div></div><div class=&quot;pright&quot;><span class=&quot;chip c-ok&quot;>Active</span></div></div>
@@ -833,15 +829,14 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
             <tr><td class=&quot;vn&quot;>Data client</td><td class=&quot;ct&quot;>NDA</td><td><span class=&quot;chip c-warn&quot;>Verify status</span></td></tr>
           </tbody></table></div></div>
         <div class=&quot;card&quot;><h3>Recurring obligations</h3>
-          <div class=&quot;item&quot; style=&quot;padding:11px 0&quot;><span class=&quot;stripe a&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>VAT / trade tax / payroll-tax filings</div><div class=&quot;m&quot;>Surface each deadline before it turns into a reminder notice.</div></div></div></div>
+          <div class=&quot;item&quot; style=&quot;padding:11px 0&quot;><span class=&quot;stripe a&quot;></span><div class=&quot;bd&quot;><div class=&quot;t&quot;>VAT / trade tax / payroll-tax filings</div><div class=&quot;m&quot;>Each deadline surfaced on the Calendar before it becomes a reminder notice.</div></div></div></div>
       </div>
     </section>
 
-    <!-- INTAKE / ONBOARDING pointers -->
+    <!-- INTAKE / ONBOARDING -->
     <section class=&quot;view&quot; id=&quot;intake&quot;>
       <div class=&quot;ptitle&quot;>Client Intake</div>
-      <div class=&quot;card&quot;><h3>The client-facing half of CaseWhen OS</h3><div class=&quot;cs&quot;>New clients start here — guided intake and secure onboarding. Admin (everything else here) is the other half of the same product.</div>
-        <button class=&quot;btn&quot;>Open the intake flow</button></div>
+      <div class=&quot;card&quot;><h3>The client-facing half of CaseWhen OS</h3><div class=&quot;cs&quot;>New clients start here — guided intake and secure onboarding. Admin is the other half of the same product.</div><button class=&quot;btn&quot;>Open the intake flow</button></div>
     </section>
     <section class=&quot;view&quot; id=&quot;onboarding&quot;>
       <div class=&quot;ptitle&quot;>Onboarding</div>
@@ -853,15 +848,12 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     </div>
   </div>
 </div>
-
 <script>
 var items=[].slice.call(document.querySelectorAll('.nav a')),views=[].slice.call(document.querySelectorAll('.view'));
 function go(v){items.forEach(function(a){a.classList.toggle('on',a.dataset.v===v)});views.forEach(function(s){s.classList.toggle('on',s.id===v)});window.scrollTo({top:0,behavior:'smooth'});}
 items.forEach(function(a){a.addEventListener('click',function(){go(a.dataset.v)})});
 [].slice.call(document.querySelectorAll('[data-go]')).forEach(function(el){el.addEventListener('click',function(){go(el.dataset.go)})});
-// time-based greeting
 (function(){var h=new Date().getHours();var g=h<12?'Good morning':h<18?'Good afternoon':'Good evening';var el=document.getElementById('greet');if(el)el.textContent=g+', Austin';})();
-// hide inactive personnel
 var ho=document.getElementById('hideOff');if(ho)ho.addEventListener('change',function(){[].slice.call(document.querySelectorAll('[data-off]')).forEach(function(p){p.style.display=ho.checked?'none':'';});});
 </script>
 </body>
