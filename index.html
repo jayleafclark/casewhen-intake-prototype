@@ -332,6 +332,8 @@ input,textarea,select{font-family:inherit}
 .attn-row:last-child{border-bottom:0}
 .ar-dot{width:8px;height:8px;border-radius:50%;background:var(--amber);flex:none;margin-top:5px}
 .attn-row b{font-size:12.5px;color:var(--ink);display:block}.attn-row span{font-size:11.5px;color:var(--muted);line-height:1.4}
+.mini-row[data-open],.attn-row[data-open]{cursor:pointer}
+.mini-row[data-open]:hover,.attn-row[data-open]:hover{background:var(--green-50)}
 .backlink{background:transparent;border:0;color:var(--green-deep);font-size:13px;font-weight:700;font-family:var(--sans);padding:0 0 16px;cursor:pointer}
 .backlink:hover{text-decoration:underline}
 </style>
@@ -630,7 +632,7 @@ input,textarea,select{font-family:inherit}
   next.addEventListener('click',function(){go(idx+1);});
   back.addEventListener('click',function(){go(idx-1);});
   document.getElementById('psave').addEventListener('click',function(){next.textContent='Saved';setTimeout(render,700);});
-  rail.forEach(function(s){s.addEventListener('click',function(){if(visited[+s.dataset.go]||+s.dataset.go<=Math.max(idx,FIRST))go(+s.dataset.go);});});
+  rail.forEach(function(s){s.addEventListener('click',function(){go(+s.dataset.go);});});
   render();
 
   var fv=document.getElementById('fvideo'); fv.addEventListener('click',function(){fv.classList.toggle('playing');});
@@ -644,6 +646,7 @@ input,textarea,select{font-family:inherit}
   function bindRm(row){var rm=row.querySelector('.rrm');if(rm)rm.addEventListener('click',function(){var box=row.parentNode;if(box.querySelectorAll('.ritem').length>1)row.remove();else row.querySelectorAll('input').forEach(function(i){i.value='';});});}
   document.querySelectorAll('.ritem').forEach(bindRm);
   document.querySelectorAll('.drop input[type=file]').forEach(function(inp){inp.addEventListener('change',function(){var d=inp.closest('.drop');if(inp.files[0]){d.classList.add('has');d.querySelector('.dt').textContent=inp.files[0].name;d.querySelector('.dd').textContent='Attached · click to replace';d.querySelector('.di').innerHTML='&#10003;';}});});
+  document.querySelectorAll('.invitebox').forEach(function(box){var b=box.querySelector('.btn');if(b)b.addEventListener('click',function(){var em=(box.querySelector('input')||{}).value||'your colleague';box.innerHTML='<div class="it">&#10003; Invite sent to '+em+'</div><div class="id">They get their own link to just this section, nothing else.</div>';});});
 
   // ---------- dashboard ----------
   var DATA={
@@ -669,7 +672,7 @@ input,textarea,select{font-family:inherit}
   function table(rows){return '<div class="mtable">'+rows.map(function(m){return '<div class="mtr"><span class="mn">'+m[0]+'</span><span class="badge '+m[1]+'">'+m[2]+'</span><span class="ms">'+m[3]+'</span></div>';}).join('')+'</div>';}
   function detail(key){
     var c=DATA[key];
-    var res=c.res.map(function(r){return '<a class="reschip" href="#" onclick="return false">'+r+' <span class="ex">&#8599;</span></a>';}).join('');
+    var res=c.res.map(function(r){return '<span class="reschip">'+r+'</span>';}).join('');
     return '<div class="dd-name">'+c.name+'</div><div class="dd-sub">'+c.sub+'</div>'+
       '<div class="dd-lab">How this intake runs</div>'+
       '<div class="phases">'+
@@ -702,8 +705,8 @@ input,textarea,select{font-family:inherit}
     return '<div class="ov-card"><div class="ov-h">Clients</div><div class="crow crow-head"><span>Client</span><span>Owner</span><span>Discovery</span><span>Progress</span><span>Status</span></div>'+rows+'</div>';
   }
   function sideCol(){
-    var up=CLIENTS.filter(function(c){return c.status!=='done';}).map(function(c){return '<div class="mini-row"><span class="mr-n">'+c.cn()+'</span><span class="mr-d">'+c.when()+'</span></div>';}).join('');
-    var attn=CLIENTS.filter(function(c){return c.attn;}).map(function(c){return '<div class="attn-row"><span class="ar-dot"></span><div><b>'+c.cn()+'</b><span>'+c.attn+'</span></div></div>';}).join('');
+    var up=CLIENTS.filter(function(c){return c.status!=='done';}).map(function(c){return '<div class="mini-row" data-open="'+c.key+'"><span class="mr-n">'+c.cn()+'</span><span class="mr-d">'+c.when()+'</span></div>';}).join('');
+    var attn=CLIENTS.filter(function(c){return c.attn;}).map(function(c){return '<div class="attn-row" data-open="'+c.key+'"><span class="ar-dot"></span><div><b>'+c.cn()+'</b><span>'+c.attn+'</span></div></div>';}).join('');
     return '<div class="ov-side"><div class="ov-card"><div class="ov-h">Upcoming discovery sessions</div>'+up+'</div><div class="ov-card"><div class="ov-h">Needs attention</div>'+attn+'</div></div>';
   }
   function overview(){
@@ -711,7 +714,7 @@ input,textarea,select{font-family:inherit}
       statCards()+'<div class="ov-grid">'+clientsTable()+sideCol()+'</div>';
   }
   function renderDash(){var m=document.getElementById('dashMain');if(!m)return;m.innerHTML=overview();
-    [].slice.call(document.querySelectorAll('.crow[data-open]')).forEach(function(b){b.addEventListener('click',function(){openClient(b.dataset.open);});});}
+    [].slice.call(m.querySelectorAll('[data-open]')).forEach(function(b){b.addEventListener('click',function(){openClient(b.dataset.open);});});}
   function openClient(key){var m=document.getElementById('dashMain');m.innerHTML='<button class="backlink" id="dashBack">&larr; All clients</button>'+detail(key);document.getElementById('dashBack').addEventListener('click',renderDash);bindDate();window.scrollTo(0,0);}
   function openNew(){var m=document.getElementById('dashMain');m.innerHTML='<button class="backlink" id="dashBack">&larr; All clients</button>'+newClientForm();document.getElementById('dashBack').addEventListener('click',renderDash);bindNewClient();window.scrollTo(0,0);}
 
