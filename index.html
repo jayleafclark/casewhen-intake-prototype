@@ -965,6 +965,12 @@ var ho=document.getElementById('hideOff');if(ho)ho.addEventListener('change',fun
               <label class="opt-chip"><input type="checkbox">External / clients</label>
             </div>
           </div>
+
+          <div class="frow">
+            <div class="f"><label>When do you need this by?</label><div class="exp">Any fixed dates &mdash; a launch, a board meeting &mdash; or phases we should plan around.</div><textarea placeholder="e.g. A first version before the Q4 board meeting; forecasting can come in a later phase"></textarea></div>
+            <div class="f"><label>How will you know it worked?</label><div class="exp">What has to be true for this to be a success &mdash; and for us to call it &ldquo;done.&rdquo;</div><textarea placeholder="e.g. The monthly finance pack takes minutes instead of days, and the team trusts the numbers"></textarea></div>
+          </div>
+          <div class="f"><label>What do you use for reporting today, and what&rsquo;s wrong with it?</label><div class="exp">Whatever you have now &mdash; spreadsheets, another tool, or nothing &mdash; and the main pain with it.</div><textarea placeholder="e.g. Excel files updated by hand each month; slow, error-prone, and only one person really understands them"></textarea></div>
         </div>
 
         <!-- 2. PROJECT DISCOVERY -->
@@ -1017,12 +1023,26 @@ var ho=document.getElementById('hideOff');if(ho)ho.addEventListener('change',fun
 
           <div class="secure" style="margin-bottom:18px"><div class="si">&#128274;</div><div class="st"><b>No passwords or logins here.</b> This is only a description of what you track. When it&rsquo;s time to connect, we set that up securely and separately.</div></div>
 
+          <div class="f"><label>Where does this data live today?</label><div class="exp">The systems or apps it comes from, roughly how much there is, and how far back it goes. A rough answer is fine.</div><textarea placeholder="e.g. Shopify (orders, ~2 years), a SQL Server database (inventory), and a few finance spreadsheets"></textarea></div>
+
           <div class="f"><label>What are the main things you track?</label><div class="exp">Think of the big &ldquo;lists&rdquo; your business runs on &mdash; orders, products, customers, shipments. For each, tell us what one entry represents and the numbers that matter. Add as many as you like.</div>
             <div class="repeat" data-repeat="datasets">
               <div class="ritem three"><input type="text" placeholder="What it is (e.g. Orders)"><input type="text" placeholder="One entry = ... (e.g. a single order)"><input type="text" placeholder="Numbers that matter (e.g. revenue, units)"><button class="rrm" title="Remove">&times;</button></div>
               <div class="ritem three"><input type="text" placeholder="What it is (e.g. Inventory)"><input type="text" placeholder="One entry = ..."><input type="text" placeholder="Numbers that matter"><button class="rrm" title="Remove">&times;</button></div>
             </div>
             <button class="addrow" data-add="datasets"><span class="pl">+</span> Add another</button>
+          </div>
+
+          <div class="f"><label>For each key number, how is it worked out?</label><div class="exp">The ones that must be right &mdash; how they&rsquo;re calculated and at what level. This is the single biggest thing that saves rework later.</div><textarea placeholder="e.g. Revenue = sales net of returns, by order date. Active customer = ordered in the last 90 days."></textarea></div>
+
+          <div class="f"><label>How fresh does the data need to be?</label><div class="exp">How often the reports should update, and how often you&rsquo;ll actually look at them.</div>
+            <div class="opts">
+              <label class="opt-chip"><input type="checkbox">Real-time / near real-time</label>
+              <label class="opt-chip"><input type="checkbox">Daily</label>
+              <label class="opt-chip"><input type="checkbox">Weekly</label>
+              <label class="opt-chip"><input type="checkbox">Monthly</label>
+              <label class="opt-chip"><input type="checkbox">Not sure yet</label>
+            </div>
           </div>
 
           <div class="f"><label>Have a data description, sample export, or dictionary? <span class="opt">optional</span></label><div class="exp">Anything that shows what your tables or columns mean saves us both time. No worries if not.</div>
