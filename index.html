@@ -944,10 +944,15 @@ var ho=document.getElementById('hideOff');if(ho)ho.addEventListener('change',fun
             <div class="f"><label>Anything out of scope? <span class="opt">optional</span></label><div class="exp">Things to leave for later.</div><textarea placeholder="e.g. Forecasting can wait for a later phase"></textarea></div>
           </div>
 
+          <div class="f"><label>What are the must-haves for the first version?</label><div class="exp">Of everything in scope, the 2&ndash;3 things that have to be there on day one &mdash; and anything that can comfortably wait for a later phase.</div><div class="frow"><textarea placeholder="Must have: e.g. the monthly finance pack and the sales-by-channel view"></textarea><textarea placeholder="Can wait: e.g. forecasting, self-serve for the wider team"></textarea></div></div>
           <div class="grouplab">Who&rsquo;s involved</div>
-          <div class="f"><label>Who has final sign-off on this project?</label><div class="exp">The person with authority to approve the work.</div><input type="text" placeholder="Name and role"></div>
+          <div class="f"><label>Who are the key people, and who signs off?</label><div class="exp">Everyone with a stake in this &mdash; their role, what they most care about, and who has final approval. Add as many as you need.</div>
+            <div class="repeat" data-repeat="stakeholders">
+              <div class="ritem three"><input type="text" placeholder="Name & role (e.g. Bill Cowan, COO)"><input type="text" placeholder="What they most care about"><label class="opt-chip" style="white-space:nowrap;justify-self:start"><input type="checkbox">Final sign-off</label><button class="rrm" title="Remove">&times;</button></div>
+            </div>
+            <button class="addrow" data-add="stakeholders"><span class="pl">+</span> Add another person</button>
+          </div>
           <div class="f"><label>Finance / billing contact</label><div class="exp">Who we should send the agreement and invoices to. Can be the same person.</div><div class="frow"><input type="text" placeholder="Full name"><input type="email" placeholder="Email"></div></div>
-          <div class="f"><label>Budget or investment range <span class="opt">optional</span></label><div class="exp">Helps us recommend the right approach. Shared only with your CaseWhen leads, and easy to refine later.</div><select><option>Prefer to discuss on the call</option><option>Under &euro;10,000</option><option>&euro;10,000 &ndash; &euro;25,000</option><option>&euro;25,000 &ndash; &euro;50,000</option><option>&euro;50,000+</option></select></div>
           <div class="f"><label>Who&rsquo;s our main contact?</label><div class="exp">The person we&rsquo;ll coordinate with day to day. Add more if it&rsquo;s a few people.</div>
             <div class="repeat" data-repeat="contacts">
               <div class="ritem"><input type="text" placeholder="Full name" value="Juana Ruiz"><input type="email" placeholder="Email" value="juana@linstol.com"><button class="rrm" title="Remove">&times;</button></div>
@@ -993,13 +998,6 @@ var ho=document.getElementById('hideOff');if(ho)ho.addEventListener('change',fun
           </div>
           <div class="frow">
             <div class="f"><label>Who&rsquo;s the most important person to get this right for?</label><input type="text" placeholder="e.g. the COO"></div>
-            <div class="f"><label>How comfortable are they with data tools?</label>
-              <div class="opts">
-                <label class="opt-chip"><input type="radio" name="fam">Not very</label>
-                <label class="opt-chip"><input type="radio" name="fam" checked>Somewhat</label>
-                <label class="opt-chip"><input type="radio" name="fam">Very</label>
-              </div>
-            </div>
           </div>
           <div class="f"><label>What do they most want to see?</label><div class="exp">Tick what matters to them.</div>
             <div class="opts">
